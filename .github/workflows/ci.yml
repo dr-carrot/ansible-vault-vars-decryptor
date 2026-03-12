@@ -53,40 +53,10 @@ jobs:
     strategy:
       matrix:
         platform:
-          - os-name: FreeBSD-x86_64
-            runs-on: ubuntu-20.04
-            target: x86_64-unknown-freebsd
-            command: build
-            binary-name: ansible-decryptor
-            skip_tests: true
 
           - os-name: Linux-x86_64
             runs-on: ubuntu-20.04
             target: x86_64-unknown-linux-musl
-            command: build
-            binary-name: ansible-decryptor
-
-          - os-name: Linux-aarch64
-            runs-on: ubuntu-20.04
-            target: aarch64-unknown-linux-musl
-            command: build
-            binary-name: ansible-decryptor
-
-          - os-name: Linux-riscv64
-            runs-on: ubuntu-20.04
-            target: riscv64gc-unknown-linux-gnu
-            command: build
-            binary-name: ansible-decryptor
-
-          - os-name: Windows-x86_64
-            runs-on: windows-latest
-            target: x86_64-pc-windows-msvc
-            command: build
-            binary-name: ansible-decryptor.exe
-
-          - os-name: macOS-x86_64
-            runs-on: macOS-latest
-            target: x86_64-apple-darwin
             command: build
             binary-name: ansible-decryptor
 
@@ -149,7 +119,7 @@ jobs:
     if: github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v')
     steps:
       - name: Download all artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
