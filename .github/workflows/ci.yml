@@ -55,7 +55,7 @@ jobs:
         platform:
 
           - os-name: Linux-x86_64
-            runs-on: ubuntu-20.04
+            runs-on: ubuntu-slim
             target: x86_64-unknown-linux-musl
             command: build
             binary-name: ansible-decryptor
